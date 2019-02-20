@@ -6,7 +6,7 @@ void printA(int **a, int k, int n);
 
 int main(int argc, char *argv[]) 
 {
-	    int n, k, c;
+	int n, k, c;
     int **Matrix;
     int **bNear;
     int **bFar;
