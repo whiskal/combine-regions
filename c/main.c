@@ -1,10 +1,7 @@
-#include <stdio.h>
 #include <malloc.h>
 #include <stdlib.h>
-
 #include "matrix.h"
 
-//void combAlg(int **_matrix, int **_near, int **_far, int K_max);
 void printA(int **a, int k, int n);
 
 int main(int argc, char *argv[]) 
@@ -20,11 +17,11 @@ int main(int argc, char *argv[])
   
 	for(n=0; n<3; n++)
 	{
-		Matrix[n] = (int*)malloc(5 * sizeof(int));
-		bNear[n] = (int*)malloc(4 * sizeof(int));
-		bFar[n] = (int*)malloc(4 * sizeof(int));
+		Matrix[n] = (int*)malloc(K_max * sizeof(int));
+		bNear[n] = (int*)malloc(K_max-1 * sizeof(int));
+		bFar[n] = (int*)malloc(K_max-1 * sizeof(int));
 		Matrix[n][0] = M[n][0];
-		for(k=0; k<4; k++)
+		for(k=0; k<K_max-1; k++)
 		{
 			Matrix[n][k+1] = M[n][k+1];
 			bNear[n][k] = Gr_blizn[n][k];
@@ -32,11 +29,11 @@ int main(int argc, char *argv[])
 		}
 	}
 	
-	combAlg(Matrix, bNear, bFar, 5);
+	combAlg(Matrix, bNear, bFar, K_max);
 	
-	printf("Matrix\n"); printA(Matrix, 5, 3);
-	printf("Near\n"); printA(bNear, 4, 3);
-	printf("Far\n"); printA(bFar, 4, 3);
+	printf("Matrix\n"); printA(Matrix, K_max, 3);
+	printf("Near\n"); printA(bNear, K_max-1, 3);
+	printf("Far\n"); printA(bFar, K_max-1, 3);
 
 	for(n=0; n<3; n++)
 	{
