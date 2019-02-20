@@ -62,37 +62,4 @@ void printA(int **a, int k, int n)
 		printf("\n");
 	}
 }
-/*
-void combAlg(int **_matrix, int **_near, int **_far, int K_max)
-{
-	int n,k,c,i;
-	for(n=0; n<3; n++)
-	{
-		printf("Current n = %d\n", n);
-		c=0;
-		for(k=1; k < K_max-1; k++)
-		{
-			while(  (_matrix[n][k+1] > 0) &
-			(_matrix[n][k] >= 3 || _matrix[n][k+1] >= 3) &	//N >= 3  
-				(_near[n][k]-1 - _far[n][k-1] <= 2))	//MIN_D <= 2 
-			{
-				_far[n][k-1] = _far[n][k];
-				_matrix[n][(k+1)-1] =_far[n][k-1] - _near[n][k-1] +1; // recalc region lenth
-					
-				for(i=k; i<K_max-1; i++) // shift far border and region lenth
-				{
-					_far[n][i] = _far[n][i+1];
-					_near[n][i] = _near[n][i+1];
-					_matrix[n][i+1] = _matrix[n][i+2];
-				}
-				_far[n][K_max-2] = 0;	// nill last
-				_near[n][K_max-2] = 0;
-				_matrix[n][K_max-1] = 0;
-				c += 1;
-			}
-		}
-		_matrix[n][0] -= c; 
-	}
-}
-*/
 

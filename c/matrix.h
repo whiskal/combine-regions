@@ -24,7 +24,6 @@ void combAlg(int **_matrix, int **_near, int **_far, int _k_max)
 	int n,k,c,i;
 	for(n=0; n<3; n++)
 	{
-		printf("Current n = %d\n", n);
 		c=0; //counter of combination
 		for(k=1; k < _k_max-1; k++)
 		{
